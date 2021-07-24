@@ -5,7 +5,7 @@ def make_csv(tasklist, sorted_list, EF, cp_list, save_path):
     for cp_task in cp_list:
         tasklist[cp_task]['is_cp'] = 'x'
 
-    with open(save_path, 'w', newline="") as f:
+    with open(save_path, 'w', newline="", encoding='utf8') as f:
         writer = csv.writer(f)
         writer.writerow(['id', 'task_name','time', 'ES', 'EF','is_cp']+list(range(1, int(EF)+1)))
         for task in sorted_list:
@@ -58,7 +58,9 @@ def estimate_EF(tasklist, sorted_list):
         if tasklist[id]['EF'] != -1:
             continue
         for require_id in tasklist[id]['predecessor']:
-            tasklist[id]['ES'] = max(tasklist[id]['ES'], tasklist[require_id]['EF'])+1
+            #tasklist[id]['ES'] = max(tasklist[id]['ES'], tasklist[require_id]['EF'])+1
+            tasklist[id]['ES'] = max(tasklist[id]['ES'], tasklist[require_id]['EF'])
+        tasklist[id]['ES'] = tasklist[id]['ES']+1
         tasklist[id]['EF'] = tasklist[id]['ES'] + tasklist[id]['time'] - 1
     return tasklist
 
@@ -66,7 +68,7 @@ def get_tasklist(path):
     tasklist = {}
     start_list = []
     unsorted_list = []
-    with open(path) as f:
+    with open(path, encoding='utf8') as f:
         reader = csv.reader(f)
         i = 0
         for row in reader:
