@@ -48,7 +48,6 @@ save_path.grid(row=3, column=0)
 
 button1 = ttk.Button(root, text='Browse', command=button2_clicked)
 button1.grid(row=3, column=3)
-
 btn = Button(root, text="ANALYSIS", command=clicked)
 btn.grid(row=4, column=0)
 
