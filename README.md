@@ -38,12 +38,12 @@ id,task_name,time,ES,EF,is_cp,1,2,3,4,5,6,7,8,9,10,11,12,13
 4,D,5,6,10,x,0,0,0,0,0,1,1,1,1,1,0,0,0
 5,E,3,11,13,x,0,0,0,0,0,0,0,0,0,0,1,1,1
 ```
-id: タスクID
-task_name: タスク名
-time: 所要時間
-ES: Early start 最早開始時間
-EF: Early finish 最早終了時間
-is_cp: クリティカルパスか否か。xと書かれているものがクリティカルパスに該当
+- id: タスクID
+- task_name: タスク名
+- time: 所要時間
+- ES: Early start 最早開始時間
+- EF: Early finish 最早終了時間
+- is_cp: クリティカルパスか否か。xと書かれているものがクリティカルパスに該当
 
 ## 参考URL
 
